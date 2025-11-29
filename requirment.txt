@@ -1,0 +1,17 @@
+ipykernel
+numpy
+pandas
+matplotlib
+seaborn
+flask
+requests
+streamlit
+scikit-learn
+imblearn
+openpyxl
+statsmodels
+pipelining
+xgboost
+lxml
+html5lib
+kneed
