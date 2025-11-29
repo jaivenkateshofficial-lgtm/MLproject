@@ -15,3 +15,4 @@ xgboost
 lxml
 html5lib
 kneed
+-e .
