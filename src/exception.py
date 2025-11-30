@@ -1,6 +1,6 @@
 import sys
 import logging
-import logger
+from src.logger import logging
 def error_message_detials(error,error_detials:sys):
     _,_,exc_tb=error_detials.exc_info()
     file_name=exc_tb.tb_frame.f_code.co_filename
