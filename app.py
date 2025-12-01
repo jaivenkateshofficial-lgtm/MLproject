@@ -3,13 +3,14 @@ import pandas as pd
 import numpy as np
 from src.pipeline.predict_pipeline import Customdata,Predictpipeline
 from src.exception import customException
+import sys
 application=Flask(__name__)
 
 app=application
 
 @app.route('/')
 def index():
-    render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/prediction', methods=['GET','POST'])
 def prediction():
@@ -30,6 +31,9 @@ def prediction():
             df=data.make_to_data_frame()
             pred=Predictpipeline()
             predicted=pred.predict_data(features=df)
-            return render_template('result.html',prediction=predicted[0])
+            return render_template('results.html',prediction=predicted[0])
     except Exception as e:
-        raise customException
+        raise customException(e,sys)
+
+if __name__=="__main__":
+    app.run(host='0.0.0.0',debug=True)

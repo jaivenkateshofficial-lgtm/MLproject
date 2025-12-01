@@ -14,6 +14,8 @@ class Customdata:
         self.test_preparation_course=test_preparation_course
         self.reading_score=reading_score
         self.writing_score=writing_score
+        self.parental_level_of_education = parental_level_of_education
+
 
     def make_to_data_frame(self):
         ditionary={
@@ -22,17 +24,19 @@ class Customdata:
             'lunch':self.lunch,
             'test_preparation_course':self.test_preparation_course,
             'reading_score':self.reading_score,
-            'writing_score':self.writing_score
+            'writing_score':self.writing_score,
+            'parental_level_of_education':self.parental_level_of_education 
+
         }
-        df=pd.DataFrame(ditionary)
+        df=pd.DataFrame([ditionary])
         return df
     
 class Predictpipeline:
     def __init__(self):
         pass
     def predict_data(self,features):
-        model_path=os.path.join('pickle','pickle','model.pkl')
-        transformer_path=os.path.join('pickle','pickle','transformer.pkl')
+        model_path=os.path.join('Artifacts','pickle','model.pkl')
+        transformer_path=os.path.join('Artifacts','pickle','transformer.pkl')
         model=load_object(file_path=model_path)
         transformer=load_object(file_path=transformer_path)
         feature_scaled=transformer.transform(features)

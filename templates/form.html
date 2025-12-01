@@ -2,32 +2,113 @@
 <html>
 <head>
     <title>Student Score Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h2>Enter Student Details</h2>
-    <form method="POST" action="/predict">
-        <label>Gender:</label>
-        <input type="text" name="gender" required><br><br>
 
-        <label>Race/Ethnicity:</label>
-        <input type="text" name="race_ethnicity" required><br><br>
+    <div class="container">
+        <h2>Student Score Prediction</h2>
 
-        <label>Parental Level of Education:</label>
-        <input type="text" name="parental_level_of_education" required><br><br>
+        <form method="POST" action="/prediction">
 
-        <label>Lunch:</label>
-        <input type="text" name="lunch" required><br><br>
+            <label>Gender:</label>
+            <select name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
 
-        <label>Test Preparation Course:</label>
-        <input type="text" name="test_preparation_course" required><br><br>
+            <label>Race/Ethnicity:</label>
+            <select name="race_ethnicity" required>
+                <option value="" disabled selected>Select Group</option>
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+            </select>
 
-        <label>Reading Score:</label>
-        <input type="number" name="reading_score" required><br><br>
+            <label>Parental Level of Education:</label>
+            <select name="parental_level_of_education" required>
+                <option value="" disabled selected>Select Education</option>
+                <option value="associate's degree">Associate's Degree</option>
+                <option value="high school">High School</option>
+                <option value="master's degree">Master's Degree</option>
+            </select>
 
-        <label>Writing Score:</label>
-        <input type="number" name="writing_score" required><br><br>
+            <label>Lunch:</label>
+            <select name="lunch" required>
+                <option value="" disabled selected>Select Lunch Type</option>
+                <option value="standard">Standard</option>
+                <option value="free/reduced">Free/Reduced</option>
+            </select>
 
-        <button type="submit">Predict</button>
-    </form>
+            <label>Test Preparation Course:</label>
+            <select name="test_preparation_course" required>
+                <option value="" disabled selected>Select Option</option>
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <label>Reading Score:</label>
+            <input type="number" name="reading_score" min="0" max="100" required>
+
+            <label>Writing Score:</label>
+            <input type="number" name="writing_score" min="0" max="100" required>
+
+            <button type="submit">Predict</button>
+
+        </form>
+    </div>
+
 </body>
 </html>

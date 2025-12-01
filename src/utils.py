@@ -4,7 +4,6 @@ from src.logger import logging
 from src.exception import customException
 import pickle
 from sklearn.metrics import r2_score
-import dill
 from sklearn.model_selection import RandomizedSearchCV
 
 def save_object(file_path,obj):
@@ -15,7 +14,7 @@ def save_object(file_path,obj):
     try:
         os.makedirs(os.path.dirname(file_path),exist_ok=True)
         with open(file_path,'wb') as file_obj:
-            dill.dump(obj,file_obj)
+            pickle.dump(obj,file_obj)
     except Exception as e:
         raise customException(e,sys)
 
@@ -47,8 +46,9 @@ def evaluate_models(x_train,y_train,x_test,y_test,models:dict,params:dict):
 def load_object(file_path:str):
     try:
         os.makedirs(os.path.dirname(file_path),exist_ok=True)
-        with open(file_path,'wb') as file_obj:
-            obj=dill.load(file_obj)
+        with open(file_path,'rb') as file_obj:
+            obj=pickle.load(file_obj)
         return obj
     except Exception as e:
         raise customException(e,sys)
+    
