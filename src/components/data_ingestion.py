@@ -7,6 +7,8 @@ from dataclasses import dataclass
 import pandas as pd
 from src.components.data_transformation import datatransformation
 from src.components.data_transformation import Datatranformationconfig
+from src.components.model_trainer import Modeltraining
+
 @dataclass
 class Dataingestionconfig:
     raw_data_path=os.path.join('Artifacts','raw_data.csv')
@@ -43,4 +45,6 @@ if __name__=="__main__":
     obj=dataingestion()
     train_data,test_data=obj.initiate_data_ingestion()
     data_transformation=datatransformation()
-    data_transformation.initialize_data_transformer(train_data,test_data)
+    train_df,test_df,_=data_transformation.initialize_data_transformer(train_data,test_data)
+    model_trainer=Modeltraining()
+    model_trainer.intialise_model(test_data=test_df,train_data=train_df)

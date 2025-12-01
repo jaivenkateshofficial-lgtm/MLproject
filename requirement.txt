@@ -16,4 +16,6 @@ lxml
 html5lib
 kneed
 dill
+catboost
+PyYAML
 #-e .

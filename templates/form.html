@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Score Prediction</title>
+</head>
+<body>
+    <h2>Enter Student Details</h2>
+    <form method="POST" action="/predict">
+        <label>Gender:</label>
+        <input type="text" name="gender" required><br><br>
+
+        <label>Race/Ethnicity:</label>
+        <input type="text" name="race_ethnicity" required><br><br>
+
+        <label>Parental Level of Education:</label>
+        <input type="text" name="parental_level_of_education" required><br><br>
+
+        <label>Lunch:</label>
+        <input type="text" name="lunch" required><br><br>
+
+        <label>Test Preparation Course:</label>
+        <input type="text" name="test_preparation_course" required><br><br>
+
+        <label>Reading Score:</label>
+        <input type="number" name="reading_score" required><br><br>
+
+        <label>Writing Score:</label>
+        <input type="number" name="writing_score" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
